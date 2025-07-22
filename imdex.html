@@ -1,68 +1,355 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>أبو الصادق - بيع الذهب</title>
-  <link rel="stylesheet" href="style.css">
+  <title>أبو الصادق - لبيع وتجارة الذهب</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- General Styles --- */
+    :root {
+      --primary-color: #D4AF37; /* Gold */
+      --secondary-color: #1a1a1a; /* Dark Gray */
+      --background-color: #fdfdfd; /* Off-white */
+      --text-color: #333;
+      --light-gray: #f4f4f4;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      color: var(--secondary-color);
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- Header --- */
+    header {
+      background-color: var(--white);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: var(--secondary-color);
+      font-size: 1rem;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: var(--primary-color);
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1611859421235-a9b545865a14?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+      color: var(--white);
+      text-align: center;
+      padding: 100px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 60vh;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      color: var(--white);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 700;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #c5a231;
+      transform: translateY(-3px);
+    }
+
+    /* --- Products Section --- */
+    .products {
+      text-align: center;
+    }
+    
+    .products h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .products h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        right: 0;
+        width: 70%;
+        height: 3px;
+        background-color: var(--primary-color);
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .product {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    .product img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .product-info {
+        padding: 20px;
+    }
+
+    .product h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .product button {
+      background-color: var(--secondary-color);
+      color: var(--white);
+      border: none;
+      padding: 10px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+
+    .product button:hover {
+      background-color: #333;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background-color: var(--secondary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+    }
+    
+    /* --- Responsive Design --- */
+    @media (max-width: 768px) {
+        header .container {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .hero h2 {
+            font-size: 2.2rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+        }
+    }
+
+  </style>
 </head>
 <body>
+
   <header>
-    <h1>أبو الصادق لبيع الذهب</h1>
-    <nav>
-      <ul>
-        <li><a href="#sets">أطقم ذهب</a></li>
-        <li><a href="#rings">خواتم</a></li>
-        <li><a href="#coins">ليرات ذهب</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1>أبو الصادق للذهب</h1>
+      <nav>
+        <ul>
+          <li><a href="#sets">أطقم ذهب</a></li>
+          <li><a href="#rings">خواتم</a></li>
+          <li><a href="#coins">ليرات ذهب</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>اختيارات فاخرة بأسعار مميزة</h2>
-    <p>ابدأ بتصفح تشكيلاتنا الآن</p>
-    <a href="#sets" class="btn">ابدأ الآن</a>
-  </section>
+  <main>
+    <section class="hero">
+      <h2>اختيارات فاخرة بأسعار مميزة</h2>
+      <p>اكتشف تشكيلاتنا الفريدة من الذهب الخالص</p>
+      <a href="#sets" class="btn">ابدأ التصفح</a>
+    </section>
 
-  <section id="sets" class="products">
-    <h2>أطقم ذهب</h2>
-    <div class="product-list">
-      <div class="product">
-        <img src="https://via.placeholder.com/200?text=طقم+1" alt="طقم ذهب 1">
-        <h3>طقم ذهب 21 قيراط</h3>
-        <p>السعر: 700 دينار</p>
-        <button>اطلب الآن</button>
+    <section id="sets" class="products">
+      <div class="container">
+        <h2>أطقم ذهب</h2>
+        <div class="product-list">
+          <div class="product">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1887&auto=format&fit=crop" alt="طقم ذهب 1">
+            <div class="product-info">
+              <h3>طقم ذهب عيار 21</h3>
+              <p>السعر: 700 دينار</p>
+              <button class="order-btn">اطلب الآن</button>
+            </div>
+          </div>
+          <div class="product">
+            <img src="https://images.unsplash.com/photo-1620656335291-b5a035757759?q=80&w=1887&auto=format&fit=crop" alt="طقم ذهب 2">
+            <div class="product-info">
+              <h3>طقم ذهب أبيض</h3>
+              <p>السعر: 850 دينار</p>
+              <button class="order-btn">اطلب الآن</button>
+            </div>
+          </div>
+          <div class="product">
+            <img src="https://images.unsplash.com/photo-1617038220319-c5a61cf35733?q=80&w=1887&auto=format&fit=crop" alt="طقم ذهب 3">
+            <div class="product-info">
+              <h3>طقم ذهب إيطالي</h3>
+              <p>السعر: 920 دينار</p>
+              <button class="order-btn">اطلب الآن</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- أضف المزيد حسب الحاجة -->
-    </div>
-  </section>
+    </section>
 
-  <section id="rings" class="products">
-    <h2>خواتم</h2>
-    <div class="product-list">
-      <div class="product">
-        <img src="https://via.placeholder.com/200?text=خاتم+1" alt="خاتم ذهب 1">
-        <h3>خاتم عيار 18</h3>
-        <p>السعر: 200 دينار</p>
-        <button>اطلب الآن</button>
+    <section id="rings" class="products" style="background-color: var(--light-gray);">
+      <div class="container">
+        <h2>خواتم</h2>
+        <div class="product-list">
+          <div class="product">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1887&auto=format&fit=crop" alt="خاتم ذهب 1">
+            <div class="product-info">
+              <h3>خاتم عيار 18</h3>
+              <p>السعر: 200 دينار</p>
+              <button class="order-btn">اطلب الآن</button>
+            </div>
+          </div>
+          <div class="product">
+            <img src="https://images.unsplash.com/photo-1598556570951-d59135563843?q=80&w=1887&auto=format&fit=crop" alt="خاتم ذهب 2">
+            <div class="product-info">
+              <h3>خاتم سوليتير</h3>
+              <p>السعر: 350 دينار</p>
+              <button class="order-btn">اطلب الآن</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="coins" class="products">
-    <h2>ليرات ذهب</h2>
-    <div class="product-list">
-      <div class="product">
-        <img src="https://via.placeholder.com/200?text=ليرة+1" alt="ليرة ذهب">
-        <h3>ليرة ذهب تركي</h3>
-        <p>السعر: 450 دينار</p>
-        <button>اطلب الآن</button>
+    <section id="coins" class="products">
+      <div class="container">
+        <h2>ليرات ذهب</h2>
+        <div class="product-list">
+          <div class="product">
+            <img src="https://images.unsplash.com/photo-1561349793-2c1a7b592484?q=80&w=1906&auto=format&fit=crop" alt="ليرة ذهب">
+            <div class="product-info">
+              <h3>ليرة ذهب إنجليزية</h3>
+              <p>السعر: 480 دينار</p>
+              <button class="order-btn">اطلب الآن</button>
+            </div>
+          </div>
+          <div class="product">
+            <img src="https://images.unsplash.com/photo-1633326948838-0886a0cde58d?q=80&w=1887&auto=format&fit=crop" alt="ليرة ذهب">
+            <div class="product-info">
+              <h3>ليرة ذهب تركية</h3>
+              <p>السعر: 450 دينار</p>
+              <button class="order-btn">اطلب الآن</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 أبو الصادق لبيع الذهب. جميع الحقوق محفوظة.</p>
+    <p>© 2025 أبو الصادق للذهب. جميع الحقوق محفوظة.</p>
   </footer>
+
+  <script>
+    // Simple script to show a confirmation message on order
+    document.querySelectorAll('.order-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        alert('شكراً لطلبك! سنتواصل معك قريباً لتأكيد التفاصيل.');
+      });
+    });
+  </script>
+
 </body>
 </html>
